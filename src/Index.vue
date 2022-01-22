@@ -6,7 +6,7 @@
     </div>
 
     <!---------------    After page loads      --------------->
-    <div v-else class="card wrapper border-0 rounded m-5 p-3 user-card-shadow">
+    <div v-else class="card wrapper border-0 rounded m-md-5 m-sm-3 p-3 user-card-shadow">
       <div class="row">
         <div class="col-md-4">
           <div>
