@@ -27,9 +27,6 @@
           <strong>Phone number: </strong> {{ user.phone }}
         </div>
         <div>
-          <strong>Email address: </strong> {{ user.email }}
-        </div>
-        <div>
           <strong>Nationality: </strong> {{ getObjProperty(user, 'location.country') }}
         </div>
         <div>
