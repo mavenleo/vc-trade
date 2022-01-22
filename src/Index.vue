@@ -176,18 +176,18 @@ import InfiniteScrolling from "./components/InfiniteLoading.vue";
 
         return this.users.filter((v: Record<string, any>) =>
             (v.name.first.toLowerCase()
-                    .includes(name)
+                    .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
-                    .includes(name))
+                    .includes(name.toLowerCase()))
             && v.gender == this.filterOptions.gender)
 
       } else if (!gender && (name && name.length)){
 
         return this.users.filter((v: Record<string, any>) =>
             (v.name.first.toLowerCase()
-                    .includes(name)
+                    .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
-                    .includes(name)))
+                    .includes(name.toLowerCase())))
 
       } else {
         return []
