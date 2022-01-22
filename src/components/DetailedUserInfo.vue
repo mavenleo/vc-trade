@@ -36,7 +36,7 @@
           <strong>Postcode: </strong> {{ getObjProperty(user, 'location.postcode') }}
         </div>
         <div>
-          <strong>Steet: </strong>
+          <strong>Street: </strong>
           {{ `${getObjProperty(user, 'location.street.number')}, ${getObjProperty(user, 'location.street.name')}` }}
         </div>
       </div>
