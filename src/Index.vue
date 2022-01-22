@@ -30,6 +30,7 @@
                   <strong>{{ filteredUsers.length }} </strong>
                 </div>
                 <div
+                    v-if="Object.keys(filterOptions).length"
                     class="text-danger cursor-pointer ml-2 mt-sm-n2 mt-md-0"
                     @click="clearFilter"
                 ><strong>clear</strong>
