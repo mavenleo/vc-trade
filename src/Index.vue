@@ -1,7 +1,7 @@
 <template>
   <section>
       <!-------------    Before page loads      -------------->
-    <div class="loading-state" v-if="loadingState && !users.length">
+    <div class="loading-state" v-if="isInitialLoading">
       <InlineLoader /> <!-- spinner -->
     </div>
 
@@ -41,7 +41,7 @@
           </div>
 
           <!---------------         Search list   ------------------>
-          <div class="position-relative" style="height: 60vh; overflow-y: visible; overflow-x: hidden">
+          <div class="position-relative" style="height: 70vh; overflow-y: visible; overflow-x: hidden">
             <div class="rounded mb-2 p-3 user-card-bg user-card-bg-hover cursor-pointer user-card-shadow"
                  @click="handleUserSelection(user)"
                  v-for="user in filteredUsers" :key="user.name">
@@ -84,6 +84,7 @@ import DetailedUserInfo from "./components/DetailedUserInfo.vue";
 import InlineLoader from "./components/InlineLoader.vue";
 import UserImageComponent from "./components/UserImageComponent.vue";
 import InfiniteScrolling from "./components/InfiniteLoading.vue";
+import {Data, User} from "./interfaces/Interfaces"
 
 
 @Options({
@@ -94,7 +95,7 @@ import InfiniteScrolling from "./components/InfiniteLoading.vue";
     UserImageComponent,
     InlineLoader
   },
-  data() : Record<string, any>{
+  data() : Data {
     return {
       users: store.state.users,
       filterOptions: store.state.filterOptions,
@@ -118,7 +119,10 @@ import InfiniteScrolling from "./components/InfiniteLoading.vue";
   },
 
   computed: {
-    filteredUsers() {
+    isInitialLoading(): boolean{
+        return this.loadingState && !this.users.length
+    },
+    filteredUsers(): Array<User> {
       if (!this.filterOptions.name
           && !this.filterOptions.gender){
         return this.users
@@ -158,23 +162,23 @@ import InfiniteScrolling from "./components/InfiniteLoading.vue";
       this.getUsers()
     },
 
-    handleUserSelection(user : Record<string, any>) : void{
+    handleUserSelection(user : User ) : void{
       this.selectedUser = user
       store.commit(MutationEnum.SAVE_SELECTED_USER, user)
     },
 
-    handleFilterChanges() : string[] {
+    handleFilterChanges() : Array<User> {
       store.commit(MutationEnum.SAVE_FILTER_OPTIONS, this.filterOptions)
       const {name, gender} = this.filterOptions
 
       if (gender && !name){
 
-        return this.users.filter((v: Record<string, any>) =>
+        return this.users.filter((v: User ) =>
             v.gender == gender)
 
       } else if (gender && (name && name.length)){
 
-        return this.users.filter((v: Record<string, any>) =>
+        return this.users.filter((v: User ) =>
             (v.name.first.toLowerCase()
                     .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
@@ -183,7 +187,7 @@ import InfiniteScrolling from "./components/InfiniteLoading.vue";
 
       } else if (!gender && (name && name.length)){
 
-        return this.users.filter((v: Record<string, any>) =>
+        return this.users.filter((v: User ) =>
             (v.name.first.toLowerCase()
                     .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()

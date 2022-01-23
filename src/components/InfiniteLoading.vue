@@ -1,7 +1,5 @@
 <template>
-  <section class="p-5">
-    <span>Loading...</span>
-  </section>
+  <section class="p-5"></section>
 </template>
 
 
