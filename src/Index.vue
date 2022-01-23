@@ -160,8 +160,10 @@ import {User} from "@/types/types";
 
     handleScrollEvent() : void {
       this.loadedCount++ // this is just so we re-mount the infinite loading component
-      this.loadingState = true
-      this.getUsers()
+      if (this.filteredUsers.length > 5){
+        this.loadingState = true
+        this.getUsers()
+      }
     },
 
     handleUserSelection(user : User ) : void{
