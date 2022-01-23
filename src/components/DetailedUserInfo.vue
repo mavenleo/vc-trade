@@ -55,7 +55,7 @@
 import { Options, Vue } from 'vue-class-component';
 import UserImageComponent from "./UserImageComponent.vue";
 import _ from 'lodash'
-import {User} from "@/interfaces/Interfaces"
+import {User} from "@/types/types"
 import {PropType} from "vue";
 
 

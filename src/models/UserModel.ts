@@ -1,6 +1,4 @@
 import axios from "axios";
-import {User} from "@/interfaces/Interfaces"
-
 
 const UserModel = {
     /**

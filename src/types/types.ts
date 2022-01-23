@@ -28,3 +28,13 @@ export type Filter = {
     name: string,
     gender: string
 }
+
+export type User = {
+    gender: string,
+    phone: string,
+    nat: string,
+    name: UserName,
+    picture: UserPicture,
+    location: UserLocation,
+    id: UserId,
+}

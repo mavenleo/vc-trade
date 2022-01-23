@@ -6,13 +6,9 @@
 
 <script lang="ts">
 import {Options, Vue} from 'vue-class-component';
-import InlineLoader from './InlineLoader.vue'
 
 @Options({
   name: 'InfiniteScrolling',
-  components: {
-    InlineLoader
-  },
   props: {
     counter: Number
   },

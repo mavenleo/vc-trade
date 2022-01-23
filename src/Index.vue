@@ -84,7 +84,8 @@ import DetailedUserInfo from "./components/DetailedUserInfo.vue";
 import InlineLoader from "./components/InlineLoader.vue";
 import UserImageComponent from "./components/UserImageComponent.vue";
 import InfiniteScrolling from "./components/InfiniteLoading.vue";
-import {Data, User} from "./interfaces/Interfaces"
+import {Data} from "./interfaces/interfaces"
+import {User} from "@/types/types";
 
 
 @Options({
@@ -173,12 +174,12 @@ import {Data, User} from "./interfaces/Interfaces"
 
       if (gender && !name){
 
-        return this.users.filter((v: Record<string, any> ) =>
+        return this.users.filter((v: User ) =>
             v.gender == gender)
 
       } else if (gender && (name && name.length)){
 
-        return this.users.filter((v: Record<string, any> ) =>
+        return this.users.filter((v: User ) =>
             (v.name.first.toLowerCase()
                     .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
@@ -187,7 +188,7 @@ import {Data, User} from "./interfaces/Interfaces"
 
       } else if (!gender && (name && name.length)){
 
-        return this.users.filter((v: Record<string, any> ) =>
+        return this.users.filter((v: User ) =>
             (v.name.first.toLowerCase()
                     .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
