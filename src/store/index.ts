@@ -1,15 +1,11 @@
 import {createStore, MutationTree} from 'vuex'
 import VuexPersistence from 'vuex-persist'
 import {User} from '@/interfaces/Interfaces'
+import {Filter} from "@/types/types";
 
 const vuexLocalStoragePlugin = new VuexPersistence({
   storage: localStorage // use local storage for store persistence
 }).plugin
-
-interface Filter{
-  name: string,
-  gender: string
-}
 
 export type State = {
   users: Array<User>,
