@@ -64,7 +64,7 @@ import {PropType} from "vue";
   components: { UserImageComponent },
   props: {
     user: {
-      type: Object as PropType<Array<User>>,
+      type: Object as PropType<User>,
       default: () => ({}),
       required: true,
     }
