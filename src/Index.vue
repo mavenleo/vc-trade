@@ -89,6 +89,7 @@ import {User} from "@/types/types";
 
 
 @Options({
+  name: 'Index',
   components: {
     UserInfoStrip,
     InfiniteScrolling,
@@ -191,7 +192,7 @@ import {User} from "@/types/types";
     }
   }
 })
-export default class HelloWorld extends Vue {}
+export default class Index extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
