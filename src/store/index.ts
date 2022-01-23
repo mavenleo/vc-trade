@@ -1,21 +1,26 @@
 import {createStore, MutationTree} from 'vuex'
 import VuexPersistence from 'vuex-persist'
-import {User, Filter} from '@/interfaces/Interfaces'
+import {User} from '@/interfaces/Interfaces'
 
 const vuexLocalStoragePlugin = new VuexPersistence({
   storage: localStorage // use local storage for store persistence
 }).plugin
 
+interface Filter{
+  name: string,
+  gender: string
+}
+
 export type State = {
   users: Array<User>,
-  filterOptions: Filter | null,
-  selectedUser: User | null,
+  filterOptions: Filter,
+  selectedUser: User,
 }
 
 const state : State = {
   users: [],
-  filterOptions: null,
-  selectedUser: null,
+  filterOptions: <Filter>{},
+  selectedUser: <User>{},
 }
 
 // Mutation enums

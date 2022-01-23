@@ -56,6 +56,7 @@ import { Options, Vue } from 'vue-class-component';
 import UserImageComponent from "./UserImageComponent.vue";
 import _ from 'lodash'
 import {User} from "@/interfaces/Interfaces"
+import {PropType} from "vue";
 
 
 @Options({
@@ -63,7 +64,7 @@ import {User} from "@/interfaces/Interfaces"
   components: { UserImageComponent },
   props: {
     user: {
-      type: Object as User,
+      type: Object as PropType<Array<User>>,
       default: () => ({}),
       required: true,
     }
@@ -95,7 +96,7 @@ export default class DetailedUserInfo extends Vue {}
   width: 100%;
   tr {
     &:nth-of-type(odd){
-      background: #fcfcfc;
+      background: #bfe5fb57;
     }
     & td{
       padding: 10px;

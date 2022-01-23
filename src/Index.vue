@@ -173,12 +173,12 @@ import {Data, User} from "./interfaces/Interfaces"
 
       if (gender && !name){
 
-        return this.users.filter((v: User ) =>
+        return this.users.filter((v: Record<string, any> ) =>
             v.gender == gender)
 
       } else if (gender && (name && name.length)){
 
-        return this.users.filter((v: User ) =>
+        return this.users.filter((v: Record<string, any> ) =>
             (v.name.first.toLowerCase()
                     .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
@@ -187,7 +187,7 @@ import {Data, User} from "./interfaces/Interfaces"
 
       } else if (!gender && (name && name.length)){
 
-        return this.users.filter((v: User ) =>
+        return this.users.filter((v: Record<string, any> ) =>
             (v.name.first.toLowerCase()
                     .includes(name.toLowerCase())
                 || v.name.last.toLowerCase()
