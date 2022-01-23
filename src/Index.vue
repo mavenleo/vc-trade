@@ -168,35 +168,26 @@ import {User} from "@/types/types";
       store.commit(MutationEnum.SAVE_SELECTED_USER, user)
     },
 
+    searchUserName(str: string, q: string): boolean {
+      if (q && q.length > 0) return str.toLowerCase()
+          .indexOf(q.toLowerCase()) > -1;
+      return false
+    },
+
     handleFilterChanges() : Array<User> {
       store.commit(MutationEnum.SAVE_FILTER_OPTIONS, this.filterOptions)
       const {name, gender} = this.filterOptions
+      return this.users.filter((user: User) => {
+        const hasFirstName = this.searchUserName(user.name.first, name)
+        const hasLastName = this.searchUserName(user.name.last, name)
+        const hasGender = user.gender == gender
 
-      if (gender && !name){
-
-        return this.users.filter((v: User ) =>
-            v.gender == gender)
-
-      } else if (gender && (name && name.length)){
-
-        return this.users.filter((v: User ) =>
-            (v.name.first.toLowerCase()
-                    .includes(name.toLowerCase())
-                || v.name.last.toLowerCase()
-                    .includes(name.toLowerCase()))
-            && v.gender == this.filterOptions.gender)
-
-      } else if (!gender && (name && name.length)){
-
-        return this.users.filter((v: User ) =>
-            (v.name.first.toLowerCase()
-                    .includes(name.toLowerCase())
-                || v.name.last.toLowerCase()
-                    .includes(name.toLowerCase())))
-
-      } else {
-        return []
-      }
+        if (((gender && hasGender) && (hasFirstName || hasLastName))
+            || (!gender && (hasFirstName || hasLastName))
+            || (hasGender && !name)){
+          return user
+        }
+      });
     }
   }
 })
