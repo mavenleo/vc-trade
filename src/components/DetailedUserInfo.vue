@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="rounded user-card-bg user-card-shadow p-3">
+    <div class="rounded user-card-bg p-3">
       <div class="d-md-flex d-sm-block align-items-md-center mb-4 pb-4">
         <UserImageComponent :src="getObjProperty(user, 'picture.large')" text="TL" size="200"/>
         <div class="ml-3">
@@ -76,9 +76,6 @@ export default class DetailedUserInfo extends Vue {}
     &-bg {
       border: 1px solid #d8e4f1;
       background: #eff9ff;
-    }
-    &-shadow{
-      box-shadow: 0 25px 35px rgba(0, 0, 0, .08);
     }
   }
   &-name{

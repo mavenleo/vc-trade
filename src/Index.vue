@@ -6,7 +6,7 @@
     </div>
 
     <!---------------    After page loads      --------------->
-    <div v-else class="card wrapper border-0 rounded m-md-5 m-sm-3 p-3 user-card-shadow">
+    <div v-else class="card wrapper border-0 rounded m-md-5 m-sm-3 p-3">
       <div class="row">
         <div class="col-md-4">
           <div>
@@ -219,9 +219,6 @@ export default class HelloWorld extends Vue {}
       &-hover:hover {
         background: #c7e5fa;
       }
-    }
-    &-shadow{
-      box-shadow: 0 25px 35px rgba(0, 0, 0, 0.08);
     }
   }
   &-name{
