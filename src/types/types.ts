@@ -1,3 +1,5 @@
+import {MutationEnum} from "@/store";
+
 export type UserName = {
     last: string,
     first: string
@@ -38,3 +40,28 @@ export type User = {
     location: UserLocation,
     id: UserId,
 }
+
+export type State = {
+    users: Array<User>,
+    filterOptions: Filter,
+    selectedUser: User,
+}
+
+// Mutation types
+export type MutationTypes <S = State> = {
+    [MutationEnum.SAVE_USERS](
+        state: S,
+        payload: Array<User>
+    ):void;
+
+    [MutationEnum.SAVE_SELECTED_USER](
+        state: S,
+        payload: User
+    ):void;
+
+    [MutationEnum.SAVE_FILTER_OPTIONS](
+        state: S,
+        payload: Filter
+    ):void;
+}
+

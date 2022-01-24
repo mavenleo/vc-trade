@@ -1,16 +1,15 @@
 import {createStore, MutationTree} from 'vuex'
 import VuexPersistence from 'vuex-persist'
-import {Filter, User} from "@/types/types";
+import {
+  Filter,
+  User,
+  State,
+  MutationTypes
+} from "@/types/types";
 
 const vuexLocalStoragePlugin = new VuexPersistence({
-  storage: localStorage // use local storage for store persistence
+  storage: localStorage // use sessionStorage for store persistence
 }).plugin
-
-export type State = {
-  users: Array<User>,
-  filterOptions: Filter,
-  selectedUser: User,
-}
 
 const state : State = {
   users: [],
@@ -23,24 +22,6 @@ export enum MutationEnum  {
   SAVE_USERS = 'SAVE_USERS',
   SAVE_SELECTED_USER = 'SAVE_SELECTED_USER',
   SAVE_FILTER_OPTIONS = 'SAVE_FILTER_OPTIONS',
-}
-
-// Mutation types
-export type MutationTypes <S = State> = {
-  [MutationEnum.SAVE_USERS](
-      state: S,
-      payload: Array<User>
-  ):void;
-
-  [MutationEnum.SAVE_SELECTED_USER](
-      state: S,
-      payload: User
-  ):void;
-
-  [MutationEnum.SAVE_FILTER_OPTIONS](
-      state: S,
-      payload: Filter
-  ):void;
 }
 
 // declare mutations

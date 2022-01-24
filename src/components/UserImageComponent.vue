@@ -4,7 +4,7 @@
     <!-- Use reverse image replacement approach to solve image absence glitches :-D -->
     <img :src="src" @error="replaceImage" v-if="src" :alt="text" />
 
-    <!------------- replacement --------->
+    <!-- ----------- replacement ------- -->
     <div class="image-alt"
          v-else
          :style="{

@@ -1,11 +1,11 @@
 <template>
   <section>
-      <!-------------    Before page loads      -------------->
+      <!-- -----------    Before page loads      ------------ -->
     <div class="loading-state" v-if="isInitialLoading">
       <InlineLoader /> <!-- spinner -->
     </div>
 
-    <!---------------    After page loads      --------------->
+    <!-- -------------    After page loads      ------------- -->
     <div v-else class="card wrapper border-0 rounded m-md-5 m-sm-3 p-3">
       <div class="row">
         <div class="col-md-4">
@@ -40,7 +40,7 @@
 
           </div>
 
-          <!---------------         Search list   ------------------>
+          <!-- -------------         Search list   ---------------- -->
           <div class="position-relative" style="height: 70vh; overflow-y: visible; overflow-x: hidden">
             <div class="rounded mb-2 p-3 user-card-bg user-card-bg-hover cursor-pointer user-card-shadow"
                  @click="handleUserSelection(user)"
@@ -53,7 +53,7 @@
             </div>
             <div class="position-relative" style="bottom: 0">
 
-              <!---------------  For infinite scrolling ---------------->
+              <!-- -------------  For infinite scrolling -------------- -->
               <InlineLoader v-if="loadingState" />
               <InfiniteScrolling v-if="showScroller" :counter="loadedCount" @load-more="handleScrollEvent"></InfiniteScrolling>
             </div>
@@ -67,7 +67,7 @@
             </small>
           </div>
 
-            <!---------------   mount component to show selected user information   -------------->
+            <!-- -------------   mount component to show selected user information   ------------ -->
           <DetailedUserInfo :user="selectedUser" />
         </div>
       </div>
