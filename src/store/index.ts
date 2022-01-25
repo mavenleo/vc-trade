@@ -7,8 +7,8 @@ import {
   MutationTypes
 } from "@/types/types";
 
-const vuexLocalStoragePlugin = new VuexPersistence({
-  storage: localStorage // use sessionStorage for store persistence
+const vuexSessionStoragePlugin = new VuexPersistence({
+  storage: sessionStorage // use sessionStorage for store persistence
 }).plugin
 
 const state : State = {
@@ -51,5 +51,5 @@ const mutations: MutationTree<State> & MutationTypes = {
 export default createStore({
   state,
   mutations,
-  plugins: [vuexLocalStoragePlugin]
+  plugins: [vuexSessionStoragePlugin]
 })
